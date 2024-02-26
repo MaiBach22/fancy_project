@@ -1,0 +1,17 @@
+{
+  "name": "fancyapp",
+  "version": "1.0.0",
+  "description": "A fancy app",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [
+    "fancy"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
