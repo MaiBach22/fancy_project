@@ -1,23 +1,31 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
+
 const app = express();
+
+app.use(cors());
 app.use(bodyParser.json());
+
 let counter = 0;
 
 app.get('/increment', (req, res) => {
     counter++;
-    res.send(`Current count: ${counter}`);
+    //res.send(`Current count: ${counter}`);
+    res.json(counter);
 });
 
-app.post('/multiplyByTen', (req, res) => {
+app.post('/multiplyByTen', async (req, res) => {
     const { number } = req.body;
 
     if (typeof number !== 'number') {
         return res.status(400).json({ error: 'Number is required in the request body' });
     }
 
-    const result = number * 10;
-    res.json({ result });
+    setTimeout(() => {
+        const result = number * 10;
+        res.json({ result });
+    }, 2000);
 });
 
 app.listen(3000, () => {
